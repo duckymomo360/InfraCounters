@@ -68,6 +68,9 @@ inline const ImVec4 GreenIf( bool bGreen )
 
 void DrawTextForStat( E_TargetType eType, const char* szName )
 {
+    if (targetsMax[eType] <= 0)
+        return;
+
     ImGui::TextColored(
         GreenIf( targetsMin[eType] >= targetsMax[eType] ),
         szName);
@@ -106,8 +109,8 @@ void DrawImGui()
         ImGuiWindowFlags_NoScrollWithMouse );
 
     // Stats
-    DrawTextForStat( INFRA_CAMERA_TARGET, "Defects:" );
-    DrawTextForStat( INFRA_CORRUPTION_TARGET, "Corruption:" );
+    DrawTextForStat( INFRA_CAMERA_TARGET, "Pictures:" );
+    DrawTextForStat( INFRA_CORRUPTION_TARGET, "Documents:" );
     DrawTextForStat( INFRA_REPAIR_TARGET, "Repairs:" );
     DrawTextForStat( INFRA_WATER_FLOW_METER_TARGET, "Flow Meters:" );
 
