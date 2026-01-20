@@ -87,6 +87,7 @@ void DrawTextForStat( E_TargetType eType, const char* szName )
 void ConfigureImGui()
 {
     ImGuiIO& io = ImGui::GetIO();
+    io.IniFilename = NULL;
     io.Fonts->AddFontFromFileTTF( "C:/Windows/Fonts/Arial.ttf", 16 );
 }
 
